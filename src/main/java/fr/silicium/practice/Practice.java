@@ -1,5 +1,6 @@
 package fr.silicium.practice;
 
+import fr.silicium.manager.ItemManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Practice extends JavaPlugin{
@@ -9,5 +10,7 @@ public final class Practice extends JavaPlugin{
 
         System.out.println("Plugin On");
 
+
+        ItemManager.init();
     }
 }
