@@ -12,8 +12,16 @@ public final class Practice extends JavaPlugin{
         System.out.println("Plugin On");
 
         this.getServer().getPluginManager().registerEvents(new UnrankedDuelEvent(), this);
-
-
+        this.getCommand("unrated").setExecutor(new Commands());
         ItemManager.init();
     }
+
+    @Override
+    public void onDisable() {
+
+        System.out.println("Plugin Off");
+
+    }
+
+
 }

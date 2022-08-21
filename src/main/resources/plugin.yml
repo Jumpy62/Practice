@@ -3,3 +3,7 @@ version: '1.0'
 main: fr.silicium.practice.Practice
 author: [Xelasflame and Jumpy]
 description: Practice de Silicium
+commands:
+  unrated:
+    description: Donne l'item pour rejoindre les queues
+    usage: /<command>

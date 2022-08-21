@@ -1,8 +1,11 @@
 package fr.silicium.event;
 
 import fr.silicium.manager.ItemManager;
+import fr.silicium.practice.AllQueues;
+import fr.silicium.practice.Practice;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -13,7 +16,12 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
+
+import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
+
+
 
 public class UnrankedDuelEvent implements Listener {
 
@@ -27,6 +35,7 @@ public class UnrankedDuelEvent implements Listener {
         player.getInventory().setItem(0, ItemManager.UnrankedDuel);
 
     }
+
     @EventHandler
     public void onInteract(PlayerInteractEvent event){
 
@@ -71,40 +80,48 @@ public class UnrankedDuelEvent implements Listener {
             if (current.isSimilar(ItemManager.buildUHC)){
                 player.closeInventory();
                 player.sendMessage("§e§lTu vas aller en Build UHC");
+                AllQueues.builduhcqueue(player);
             }
             if (current.isSimilar(ItemManager.Nodebuff)){
                 player.closeInventory();
                 player.sendMessage("§e§lTu vas aller en Nodebuff");
+                AllQueues.nodebuffqueue(player);
             }
 
             if (current.isSimilar(ItemManager.Debuff)){
                 player.closeInventory();
                 player.sendMessage("§e§lTu vas aller en Debuff");
+                AllQueues.debuffqueue(player);
             }
 
             if (current.isSimilar(ItemManager.Bow)){
                 player.closeInventory();
                 player.sendMessage("§e§lTu vas aller en Bow");
+                AllQueues.bowqueue(player);
             }
 
             if (current.isSimilar(ItemManager.HCF)){
                 player.closeInventory();
                 player.sendMessage("§e§lTu vas aller en HCF");
+                AllQueues.hcfqueue(player);
             }
 
             if (current.isSimilar(ItemManager.bridge)){
                 player.closeInventory();
                 player.sendMessage("§e§lTu vas aller en Bridge");
+                AllQueues.bridgequeue(player);
             }
 
             if (current.isSimilar(ItemManager.Combo)){
                 player.closeInventory();
                 player.sendMessage("§e§lTu vas aller en Combo");
+                AllQueues.comboqueue(player);
             }
 
             if (current.isSimilar(ItemManager.Classic)){
                 player.closeInventory();
                 player.sendMessage("§e§lTu vas aller en Classic");
+                AllQueues.classicqueue(player);
             }
         }
     }

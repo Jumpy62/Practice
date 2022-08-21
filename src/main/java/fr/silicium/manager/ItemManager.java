@@ -2,6 +2,7 @@ package fr.silicium.manager;
 
 import fr.silicium.practice.GetItem;
 import org.bukkit.Material;
+import org.bukkit.entity.Item;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -48,16 +49,21 @@ public class ItemManager {
     }
 
     private static void buildUHC(){
-        buildUHC = GetItem.getItem(Material.GOLDEN_APPLE, "§6§lBuild UHC");
+        buildUHC = GetItem.getItem(Material.LAVA_BUCKET, "§6§lBuild UHC");
+        ItemManager.buildUHC.setAmount(0);
     }
 
     private static void Nodebuff(){
         ItemStack item = new Potion(PotionType.INSTANT_HEAL, 1, false, false).toItemStack(1);
         ItemMeta meta = item.getItemMeta();
         meta.setDisplayName("§a§lNodebuff");
+        List<String> lore = new ArrayList<>();
+        lore.add("Il y a 0 personnes dans la queue");
         meta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         item.setItemMeta(meta);
         Nodebuff = item;
+        ItemManager.Nodebuff.setAmount(0);
+
     }
 
     private static void Debuff(){
@@ -67,26 +73,39 @@ public class ItemManager {
         meta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         item.setItemMeta(meta);
         Debuff = item;
+        ItemManager.Debuff.setAmount(0);
+
     }
 
     private static void Bow(){
         Bow = GetItem.getItem(Material.BOW, "§b§lBow");
+        ItemManager.Bow.setAmount(0);
+
     }
 
+
     private static void hcf(){
-        HCF = GetItem.getItem(Material.DIAMOND_CHESTPLATE, "§5§lHCF");
+        HCF = GetItem.getItem(Material.FISHING_ROD, "§5§lHCF");
+        ItemManager.HCF.setAmount(0);
+
     }
 
     private static void Bridge(){
-        bridge = GetItem.getItem(Material.GOLD_PICKAXE, "§c§lBridge");
+        bridge = GetItem.getItem(Material.CLAY, "§c§lBridge");
+        ItemManager.bridge.setAmount(0);
+
     }
 
     private static void Combo(){
-        Combo = GetItem.getItem(Material.RABBIT_FOOT, "§d§lCombo");
+        Combo = GetItem.getItem(Material.GOLDEN_APPLE, "§d§lCombo");
+        ItemManager.Combo.setAmount(0);
+
     }
 
     private static void Classic(){
         Classic = GetItem.getItem(Material.DIAMOND_SWORD, "§1§lClassic");
+        ItemManager.Classic.setAmount(0);
+
     }
 
 }
