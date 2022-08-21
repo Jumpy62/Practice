@@ -1,8 +1,12 @@
 package fr.silicium.manager;
 
+import fr.silicium.practice.GetItem;
 import org.bukkit.Material;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.potion.Potion;
+import org.bukkit.potion.PotionType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,19 +14,79 @@ import java.util.List;
 public class ItemManager {
 
     public static ItemStack UnrankedDuel;
+    public static ItemStack buildUHC;
+    public static ItemStack Nodebuff;
+    public static ItemStack Debuff;
+    public static ItemStack Bow;
+    public static ItemStack HCF;
+    public static ItemStack bridge;
+    public static ItemStack Combo;
+    public static ItemStack Classic;
 
     public static void init(){
         createUnrankedDuel();
+        buildUHC();
+        Nodebuff();
+        Debuff();
+        Bow();
+        hcf();
+        Bridge();
+        Combo();
+        Classic();
     }
 
-    private static void createUnrankedDuel(){
+    private static void createUnrankedDuel() {
         ItemStack item = new ItemStack(Material.IRON_SWORD, 1);
         ItemMeta meta = item.getItemMeta();
         meta.setDisplayName("Unranked Duel");
         List<String> lore = new ArrayList<>();
         lore.add("Clic droit pour duel");
         meta.setLore(lore);
+        meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         item.setItemMeta(meta);
         UnrankedDuel = item;
     }
+
+    private static void buildUHC(){
+        buildUHC = GetItem.getItem(Material.GOLDEN_APPLE, "§6§lBuild UHC");
+    }
+
+    private static void Nodebuff(){
+        ItemStack item = new Potion(PotionType.INSTANT_HEAL, 1, false, false).toItemStack(1);
+        ItemMeta meta = item.getItemMeta();
+        meta.setDisplayName("§a§lNodebuff");
+        meta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+        item.setItemMeta(meta);
+        Nodebuff = item;
+    }
+
+    private static void Debuff(){
+        ItemStack item = new Potion(PotionType.INSTANT_DAMAGE, 1, false, false).toItemStack(1);
+        ItemMeta meta = item.getItemMeta();
+        meta.setDisplayName("§3§lDebuff");
+        meta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+        item.setItemMeta(meta);
+        Debuff = item;
+    }
+
+    private static void Bow(){
+        Bow = GetItem.getItem(Material.BOW, "§b§lBow");
+    }
+
+    private static void hcf(){
+        HCF = GetItem.getItem(Material.DIAMOND_CHESTPLATE, "§5§lHCF");
+    }
+
+    private static void Bridge(){
+        bridge = GetItem.getItem(Material.GOLD_PICKAXE, "§c§lBridge");
+    }
+
+    private static void Combo(){
+        Combo = GetItem.getItem(Material.RABBIT_FOOT, "§d§lCombo");
+    }
+
+    private static void Classic(){
+        Classic = GetItem.getItem(Material.DIAMOND_SWORD, "§1§lClassic");
+    }
+
 }
