@@ -23,7 +23,7 @@ public class Commands  implements CommandExecutor {
                 if (command.getName().equalsIgnoreCase("unrated")){
                     player.getInventory().addItem(ItemManager.UnrankedDuel);
                 }
-            }
+                 }
         }
         return true;
     }

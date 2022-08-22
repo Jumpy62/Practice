@@ -24,6 +24,8 @@ public class ItemManager {
     public static ItemStack Combo;
     public static ItemStack Classic;
 
+    public static ItemStack pvpsoup;
+
     public static void init(){
         createUnrankedDuel();
         buildUHC();
@@ -34,6 +36,7 @@ public class ItemManager {
         Bridge();
         Combo();
         Classic();
+        pvpsoup();
     }
 
     private static void createUnrankedDuel() {
@@ -44,6 +47,7 @@ public class ItemManager {
         lore.add("Clic droit pour duel");
         meta.setLore(lore);
         meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+        meta.spigot().setUnbreakable(true);
         item.setItemMeta(meta);
         UnrankedDuel = item;
     }
@@ -106,6 +110,11 @@ public class ItemManager {
         Classic = GetItem.getItem(Material.DIAMOND_SWORD, "§1§lClassic");
         ItemManager.Classic.setAmount(0);
 
+    }
+
+    private static void pvpsoup(){
+        pvpsoup = GetItem.getItem(Material.MUSHROOM_SOUP, "§6§lPvP Soup");
+        ItemManager.pvpsoup.setAmount(0);
     }
 
 }

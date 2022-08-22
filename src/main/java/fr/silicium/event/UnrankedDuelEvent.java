@@ -1,5 +1,6 @@
 package fr.silicium.event;
 
+import fr.silicium.practice.Kits;
 import fr.silicium.manager.ItemManager;
 import fr.silicium.practice.AllQueues;
 import fr.silicium.practice.Practice;
@@ -15,6 +16,8 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 
 import java.util.Arrays;
@@ -31,8 +34,12 @@ public class UnrankedDuelEvent implements Listener {
         Player player = event.getPlayer();
 
         player.getInventory().clear();
+        player.getInventory().setArmorContents(new ItemStack[player.getInventory().getArmorContents().length]);
+
 
         player.getInventory().setItem(0, ItemManager.UnrankedDuel);
+        player.addPotionEffect(new PotionEffect(PotionEffectType.SATURATION, 999999*20, 254, true , true));
+        player.addPotionEffect(new PotionEffect(PotionEffectType.HEAL, 999999*20, 254, true, true));
 
     }
 
@@ -58,6 +65,7 @@ public class UnrankedDuelEvent implements Listener {
                 inv.setItem(5, ItemManager.bridge);
                 inv.setItem(6, ItemManager.Combo);
                 inv.setItem(7, ItemManager.Classic);
+                inv.setItem(8, ItemManager.pvpsoup);
 
                 player.openInventory(inv);
             }
@@ -122,6 +130,11 @@ public class UnrankedDuelEvent implements Listener {
                 player.closeInventory();
                 player.sendMessage("§e§lTu vas aller en Classic");
                 AllQueues.classicqueue(player);
+            }
+            if (current.isSimilar(ItemManager.pvpsoup)){
+                player.closeInventory();
+                player.sendMessage("§e§lTu vas aller en PvP soup");
+                AllQueues.pvpsoupqueue(player);
             }
         }
     }
