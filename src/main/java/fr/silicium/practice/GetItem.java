@@ -1,6 +1,5 @@
 package fr.silicium.practice;
 
-import fr.silicium.manager.ItemManager;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;

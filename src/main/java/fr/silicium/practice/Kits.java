@@ -1,21 +1,13 @@
 package fr.silicium.practice;
 
-import fr.silicium.manager.ItemManager;
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
-import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.Potion;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.potion.PotionType;
 import org.bukkit.potion.PotionEffect;
-import javax.persistence.Table;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Kits {
 
@@ -363,6 +355,55 @@ public class Kits {
         Player.getInventory().addItem(new ItemStack(Material.BOWL, 64));
         Player.getInventory().addItem(new ItemStack(Material.BROWN_MUSHROOM, 64));
         Player.getInventory().addItem(new ItemStack(Material.RED_MUSHROOM, 64));
+        Player.removePotionEffect(PotionEffectType.SATURATION);
+        Player.removePotionEffect(PotionEffectType.HEAL);
+
+
+
+    }
+
+    public static void netheribuskit(Player Player){
+
+        ItemStack BuildUHCsword = new ItemStack(Material.DIAMOND_SWORD, 1);
+        BuildUHCsword.addEnchantment(Enchantment.DAMAGE_ALL, 3);
+
+        ItemStack BuildUHCbow = new ItemStack(Material.BOW, 1);
+        BuildUHCbow.addEnchantment(Enchantment.ARROW_DAMAGE, 2);
+
+        ItemStack BuildUHChelmet = new ItemStack(Material.DIAMOND_HELMET, 1);
+        BuildUHChelmet.addEnchantment(Enchantment.PROTECTION_PROJECTILE, 2);
+
+        ItemStack BuildUHCchesplate = new ItemStack(Material.DIAMOND_CHESTPLATE, 1);
+        BuildUHCchesplate.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 2);
+
+        ItemStack BuildUHCleggings = new ItemStack(Material.DIAMOND_LEGGINGS, 1);
+        BuildUHCleggings.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 2);
+
+        ItemStack BuildUHCboots = new ItemStack(Material.DIAMOND_BOOTS, 1);
+        BuildUHCboots.addEnchantment(Enchantment.PROTECTION_PROJECTILE, 2);
+
+
+        Player.getInventory().clear();
+        Player.getInventory().addItem(BuildUHCsword);
+        Player.getInventory().addItem(BuildUHCbow);
+        Player.getInventory().setHelmet(BuildUHChelmet);
+        Player.getInventory().setChestplate(BuildUHCchesplate);
+        Player.getInventory().setLeggings(BuildUHCleggings);
+        Player.getInventory().setBoots(BuildUHCboots);
+        Player.getInventory().addItem(new ItemStack(Material.GOLDEN_APPLE, 8));
+        Player.getInventory().addItem(new ItemStack(Material.COBBLESTONE, 64));
+        Player.getInventory().addItem(new ItemStack(Material.COOKED_BEEF, 64));
+        Player.getInventory().addItem(new ItemStack(Material.BED, 1));
+        Player.getInventory().addItem(new ItemStack(Material.LAVA_BUCKET, 1));
+        Player.getInventory().addItem(new ItemStack(Material.DIAMOND_PICKAXE, 1));
+        Player.getInventory().addItem(new ItemStack(Material.DIAMOND_AXE, 1));
+        Player.getInventory().addItem(new ItemStack(Material.ARROW, 20));
+        Player.getInventory().addItem(new ItemStack(Material.WOOD, 64));
+        Player.getInventory().addItem(new ItemStack(Material.LAVA_BUCKET, 1));
+        Player.getInventory().addItem(new ItemStack(Material.BED, 1));
+        Player.getInventory().addItem(new ItemStack(Material.BED, 1));
+
+        Player.updateInventory();
         Player.removePotionEffect(PotionEffectType.SATURATION);
         Player.removePotionEffect(PotionEffectType.HEAL);
 

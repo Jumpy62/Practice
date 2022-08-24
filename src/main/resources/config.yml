@@ -1,0 +1,13 @@
+spawn:
+  x: 50
+  y: 70
+  z: 50
+  world: "world"
+  Yaw:
+  Pitch:
+
+
+map:
+  #coo d une map en attendant le dev
+  coo: 120, 151, 150
+  Bukkit.world: "world"

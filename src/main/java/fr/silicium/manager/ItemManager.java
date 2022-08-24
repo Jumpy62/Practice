@@ -26,6 +26,9 @@ public class ItemManager {
 
     public static ItemStack pvpsoup;
 
+    public static ItemStack netheribus;
+
+
     public static void init(){
         createUnrankedDuel();
         buildUHC();
@@ -37,6 +40,7 @@ public class ItemManager {
         Combo();
         Classic();
         pvpsoup();
+        netheribus();
     }
 
     private static void createUnrankedDuel() {
@@ -117,4 +121,8 @@ public class ItemManager {
         ItemManager.pvpsoup.setAmount(0);
     }
 
-}
+    private static void netheribus(){
+        netheribus = GetItem.getItem(Material.NETHERRACK, "§b§lBow");
+        ItemManager.netheribus.setAmount(0);
+
+}}

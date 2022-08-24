@@ -4,6 +4,21 @@ main: fr.silicium.practice.Practice
 author: [Xelasflame and Jumpy]
 description: Practice de Silicium
 commands:
+  setarena:
+    description: definit un home
+    usage: /<command>
+  arena:
+    description: téléporte au home
+    usage: /<command>
   unrated:
     description: Donne l'item pour rejoindre les queues
     usage: /<command>
+  setspawn:
+    description: definit le spawn
+    usage: /<command>
+  spawn:
+    description: envoie au spawn
+    usage: /<command>
+  kit:
+    description: give un kit
+    usage: /<command> <kit> <player>

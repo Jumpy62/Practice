@@ -16,17 +16,17 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.permissions.PermissionAttachment;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
-
+import java.util.*;
 
 
 public class UnrankedDuelEvent implements Listener {
+
+
 
     @EventHandler
     public void onJoin(PlayerJoinEvent event){
@@ -36,10 +36,9 @@ public class UnrankedDuelEvent implements Listener {
         player.getInventory().clear();
         player.getInventory().setArmorContents(new ItemStack[player.getInventory().getArmorContents().length]);
 
-
         player.getInventory().setItem(0, ItemManager.UnrankedDuel);
-        player.addPotionEffect(new PotionEffect(PotionEffectType.SATURATION, 999999*20, 254, true , true));
-        player.addPotionEffect(new PotionEffect(PotionEffectType.HEAL, 999999*20, 254, true, true));
+        player.addPotionEffect(new PotionEffect(PotionEffectType.SATURATION, 999999, 254, true , true));
+        player.addPotionEffect(new PotionEffect(PotionEffectType.HEAL, 999999, 254, true, true));
 
     }
 
@@ -55,7 +54,7 @@ public class UnrankedDuelEvent implements Listener {
         if (it.getType() == Material.IRON_SWORD && Objects.equals(it.getItemMeta().getDisplayName(), "Unranked Duel")){
             if (action == Action.RIGHT_CLICK_AIR || action == Action.RIGHT_CLICK_BLOCK){
 
-                Inventory inv = Bukkit.createInventory(null, 9, "Unranked");
+                Inventory inv = Bukkit.createInventory(null, 18, "Unranked");
 
                 inv.setItem(0, ItemManager.Nodebuff);
                 inv.setItem(1, ItemManager.Debuff);
@@ -66,6 +65,7 @@ public class UnrankedDuelEvent implements Listener {
                 inv.setItem(6, ItemManager.Combo);
                 inv.setItem(7, ItemManager.Classic);
                 inv.setItem(8, ItemManager.pvpsoup);
+                inv.setItem(8, ItemManager.netheribus);
 
                 player.openInventory(inv);
             }
@@ -134,6 +134,11 @@ public class UnrankedDuelEvent implements Listener {
             if (current.isSimilar(ItemManager.pvpsoup)){
                 player.closeInventory();
                 player.sendMessage("§e§lTu vas aller en PvP soup");
+                AllQueues.pvpsoupqueue(player);
+            }
+            if (current.isSimilar(ItemManager.netheribus)){
+                player.closeInventory();
+                player.sendMessage("§e§lTu vas aller en PvP netheribus");
                 AllQueues.pvpsoupqueue(player);
             }
         }
